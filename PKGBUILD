@@ -1,15 +1,20 @@
-# Maintainer: Archiv8 <archiv8@artisteducator.com>
-# Contributor: Archiv8 <archiv8@artisteducator.com>
+#!/bin/bash
 
+# Disable various shellcheck rules that produce false positives in this file.
+# Repository rules should be added to the .shellcheckrc file located in the
+# repository root directory, see https://github.com/koalaman/shellcheck/wiki
+# and https://archiv8.github.io for further information.
+# shellcheck disable=SC2034,SC2154
+# ToDo: Add files: User documentation
+# ToDo: Add files: Tooling
+# FixMe: Namcap warnings and errors
 
-_langname="nodejs"
-_relname="remark-preset-lint-consistent"
-#_partname=""
-#_cvsname=""
+# Maintainer: Ross Clark <archiv8@artisteducator.com>
+# Contributor: Ross Clark <archiv8@artisteducator.com>
 
 
 # pkgbase=
-pkgname="${_langname}-${_relname}"
+pkgname="remark-preset-lint-unsmudged"
 pkgver=3.0.0
 pkgrel=1
 # epoch=
@@ -28,7 +33,7 @@ makedepends=("jq" "npm")
 # backup=()
 # options=()
 # install=
-changelog="CHANGELOG.md"
+# changelog="CHANGELOG.md"
 source=(
 "https://registry.npmjs.org/$_relname/-/$_relname-$pkgver.tgz"
 "CC-by-SA-v4.md"
@@ -85,17 +90,17 @@ package() {
   mv "$tmppackage" "$pkgjson"
   chmod 644 "$pkgjson"
 
-  # Install license
-  install -Dm 644 "LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+# Install license
+  # install -Dm 644 "LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 
   # Create Archiv8 documentation folder
-  install -dvm 755 "$pkgdir/usr/share/doc/$pkgname/packaging/"
+  # install -dvm 755 "$pkgdir/usr/share/doc/$pkgname/packaging/"
 
   # Install Archiv8 Documentation
-  install -Dm 644 "CC-by-SA-v4.md" "$pkgdir/usr/share/licenses/$pkgname/packaging/CC-by-SA-v4.md"
-  install -Dm 644 "CHANGELOG.md" "$pkgdir/usr/share/doc/$pkgname/packaging/CHANGELOG.md"
-  install -Dm 644 "ISSUES.md" "$pkgdir/usr/share/doc/$pkgname/packaging/ISSUES.md"
-  install -Dm 644 "LICENSE.md" "$pkgdir/usr/share/licenses/$pkgname/packaging/LICENSE.md"
-  install -Dm 644 "MIT.md" "$pkgdir/usr/share/licenses/$pkgname/packaging/MIT.md"
-  install -Dm 644 "README.md" "$pkgdir/usr/share/doc/$pkgname/packaging/README.md"
+  # install -Dm 644 "CC-by-SA-v4.md" "$pkgdir/usr/share/licenses/$pkgname/packaging/CC-by-SA-v4.md"
+  # install -Dm 644 "CHANGELOG.md" "$pkgdir/usr/share/doc/$pkgname/packaging/CHANGELOG.md"
+  # install -Dm 644 "ISSUES.md" "$pkgdir/usr/share/doc/$pkgname/packaging/ISSUES.md"
+ #  install -Dm 644 "LICENSE.md" "$pkgdir/usr/share/licenses/$pkgname/packaging/LICENSE.md"
+  # install -Dm 644 "MIT.md" "$pkgdir/usr/share/licenses/$pkgname/packaging/MIT.md"
+ #  install -Dm 644 "README.md" "$pkgdir/usr/share/doc/$pkgname/packaging/README.md"
   }
