@@ -23,7 +23,8 @@ arch=("any")
 url="https://github.com/remarkjs/remark-lint/tree/master/packages/remark-preset-lint-consistent"
 license=("MIT")
 # groups=()
-depends=("nodejs")
+depends=("nodejs"
+  "remark-lint")
 # optdepends=()
 makedepends=("jq" "npm")
 # checkdepends=()
@@ -89,6 +90,8 @@ package() {
   jq '.|=with_entries(select(.key|test("_.+")|not))' "$pkgjson" > "$tmppackage"
   mv "$tmppackage" "$pkgjson"
   chmod 644 "$pkgjson"
+
+rm -rf "$pkgdir/usr/lib/node_modules/root"
 
 # Install license
   # install -Dm 644 "LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
